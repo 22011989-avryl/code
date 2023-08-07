@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> MoneyFace </title>
+</head>
+
+<style>
+    img {
+        width: 100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        text-align: center;
+        font-size: 100;
+    }
+    a {
+        text-align: center;
+        display: block;
+    }
+    label {
+        text-align: center;
+        display: block;
+    }
+    input {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body> 
+
+    <img src = "moneyfaceicon.png" />
+
+    <h2> Create new account </h2>
+
+    <a href = "Login.html"> Already Registered? Log in here. </a> <br>
+
+    
+    <label for = "name"> Name: </label>
+    <input type = "text" id = "name" name = "name"> <br>
+
+   
+    <label for = "email"> Email: </label>
+    <input type = "text" id = "email" email = "email"> <br>
+
+    
+    <label for = "pw"> Password: </label>
+    <input type = "text" id = "pw" name = "pw"> <br>
+    
+    <label for = "pw"> Password: </label>
+    <input type = "text" id = "pw" name = "pw"> <br>
+
+    <a href = "createsecretpasspphrase.html"> 
+        <button> Sign up </button>
+     </a> 
+
+</body>
+
+<script> 
+
+    function register() {
+        let fname = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let pass = document.getElementById("pw").value;
+        let pass2 = document.getElementById("pw2").value;
+
+        let user_info = new Array();
+        user_info = JSON.parse(localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")) : []
+        if (user_data.some((a) => a.email === email)) {
+            alert("Existing user");
+        }
+        else if (pw != pw2) {
+            alert("Password Does Not Match")
+        }
+        else {
+            user_info.push({
+                "name": name,
+                "email": email,
+                "password": pw2,
+            })
+            localStorage.setItem("user", JSON.stringify(user_info));
+            alert("Account Created")
+            window.location.href = "Login.html";
+        }
+    }
+
+</script>
+</html>

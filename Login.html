@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> MoneyFace </title>
+</head>
+
+<style>
+    img {
+        width: 100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h2 {
+        text-align: center;
+        font-size: 100;
+    }
+    p {
+        text-align: center;
+    }
+    a {
+        text-align: center;
+        display: block;
+    }
+    button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    label {
+        text-align: center;
+        display: block;
+    }
+    input {
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<body> 
+    <img src = "moneyfaceicon.png" />
+
+    <h2> Login </h2>
+    <p> Sign in to continue. </p> <br>
+
+
+    <label for = "name"> Name: </label> 
+    <input type = "text" id = "name" name = "name"> <br>
+
+
+    <label for = "pw"> Password: </label> 
+    <input type = "text" id = "pw" name = "pw"> <br>
+
+    <button onclick = "verified()"> Log in </button> <br>
+
+    <a href = "forgotpassword.html"> Forget Password? </a> 
+    <a href = "createscc.html"> Sign up!  </a> 
+
+</body>
+
+<script>
+    function verified() {
+        let name = document.getElementById("name").value;
+        let pw = document.getElementById("pw").value;
+
+        let user_info = new Array();
+        user_info = JSON.parse(localStorage.getItem("user")) ? JSON.parse(localStorage.getItem("user")) : []
+        if (user_info.some((a) => a.name === name && a.password === pw)) {
+            window.location.href = "loginsecretpassphrase.html";
+        }
+        else {
+            alert("Fail to login")
+        }
+    }
+</script>
+
+</html>
